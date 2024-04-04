@@ -73,6 +73,9 @@ const option = {
 //获取各分类销量数据
 const display = async () => {
     let result = await sellService.prediction();
+    if (result === null) {
+        return;
+    }
     for (let i = 0; i < result.data.length; i++) {
         option.xAxis.data.push(result.data[i].date);
         option.series[0].data.push(result.data[i].sales);
