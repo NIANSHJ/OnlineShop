@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    <resultMap id="userResultMap" type="com.example.pojo.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="createTime" column="create_time"/>
+        <collection property="roles" resultMap="roleResultMap"/>
+    </resultMap>
+
+    <resultMap id="roleResultMap" type="com.example.pojo.Role">
+        <id property="roleId" column="role_id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="findByUserName" resultMap="userResultMap">
+        select user.id,
+               user.username,
+               user.password,
+               user.phone,
+               user.email,
+               role.role_id,
+               role.name
+        from user
+                 left join user_role on user.id = user_role.user_id
+                 left join role on user_role.role_id = role.role_id
+        where username = #{username}
+    </select>
+
+    <select id="findPermission" resultType="com.example.pojo.Permission">
+        select permission.id, permission.name, permission.perms
+        from permission
+        left join role_permission on permission.id = role_permission.permission_id
+        where role_permission.role_id in
+        <foreach collection="roleIds" open="(" close=")" separator="," item="roleId">
+            #{roleId}
+        </foreach>
+    </select>
+
+</mapper>
