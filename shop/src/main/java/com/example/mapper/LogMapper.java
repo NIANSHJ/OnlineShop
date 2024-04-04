@@ -23,9 +23,6 @@ public class LogMapper {
     @Autowired
     private MongoDBUtil mongoDBUtil;
 
-    @Autowired
-    private CategoryMapper categoryMapper;
-
     //添加顾客日志
     public void customerAdd(CustomerLog customerLog) {
         mongoDBUtil.insert(customerLog, CUSTOMER_COLLECTION_NAME);
