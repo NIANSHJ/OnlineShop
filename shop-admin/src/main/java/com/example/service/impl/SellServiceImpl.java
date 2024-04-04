@@ -7,8 +7,6 @@ import com.example.service.SellService;
 import org.apache.commons.math3.fitting.PolynomialCurveFitter;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -22,10 +20,6 @@ public class SellServiceImpl implements SellService {
     @Autowired
     private SellMapper sellMapper;
 
-    @Qualifier("webApplicationContext")
-    @Autowired
-    private ResourceLoader resourceLoader;
-
     //获取各分类销售额服务
     @Override
     public List<Sell> statistic() {
@@ -36,6 +30,9 @@ public class SellServiceImpl implements SellService {
     @Override
     public List<Prediction> prediction() {
         List<Prediction> predictions = sellMapper.prediction();
+        if (predictions.isEmpty()) {
+            return null;
+        }
         WeightedObservedPoints points = new WeightedObservedPoints();
         for (Prediction prediction : predictions) {
             LocalDate date = LocalDate.parse(prediction.getDate());
