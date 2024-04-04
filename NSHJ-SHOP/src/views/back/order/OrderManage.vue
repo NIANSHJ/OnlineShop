@@ -166,7 +166,7 @@ const deleteOrder = async (row) => {
                 </template>
             </el-table-column>
             <el-table-column label='下单时间' width='180' prop='createTime' align='center'></el-table-column>
-            <el-table-column label='订单状态' width='80' prop='state' align='center'>
+            <el-table-column label='订单状态' width='90' prop='state' align='center'>
                 <template #default='{ row }'>
                     {{ row.state === false ? '未发货' : '已发货' }}
                 </template>
