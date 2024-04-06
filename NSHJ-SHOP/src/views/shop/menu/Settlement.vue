@@ -103,7 +103,7 @@ const submitOrder = async () => {
 
 <style lang='scss' scoped>
 .page-container {
-    min-height: 100%;
+    min-height: 100vh;
     box-sizing: border-box;
 
     h3 {
