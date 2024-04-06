@@ -1,1 +1,1 @@
-NSHJ-SHOP为前端Vue项目，shop为后端商城前台服务，shop-admin为后端商城后台服务。
+这是网络应用开发课程设计的源代码合集，其中NSHJ-SHOP为前端Vue项目，shop为后端商城前台服务，shop-admin为后端商城后台服务。
