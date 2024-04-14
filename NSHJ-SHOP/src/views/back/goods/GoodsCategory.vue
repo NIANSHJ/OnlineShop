@@ -102,12 +102,12 @@ const deleteCategory = (row) => {
             <el-button type='primary' :icon='CirclePlus' @click='showAddDialog'>添加分类</el-button>
         </div>
 
-        <el-table :data='categorys' border style='width: 80%'>
+        <el-table :data='categorys' border style='width: 75%'>
             <el-table-column label='分类ID' width='150' prop='id' sortable align='center'> </el-table-column>
-            <el-table-column label='分类名称' width='200' prop='name' align='center'></el-table-column>
+            <el-table-column label='分类名称' prop='name' align='center'></el-table-column>
             <el-table-column label='创建时间' width='200' prop='createTime' sortable align='center'></el-table-column>
             <el-table-column label='更新时间' width='200' prop='updateTime' sortable align='center'></el-table-column>
-            <el-table-column label='操作' width='180' align='center'>
+            <el-table-column label='操作' width='200' align='center'>
                 <template #default='{ row }'>
                     <el-button :icon='Edit' @click='showUpdateDialog(row)'>编辑</el-button>
                     <el-button :icon='Delete' type='danger' @click='deleteCategory(row)'>删除</el-button>
