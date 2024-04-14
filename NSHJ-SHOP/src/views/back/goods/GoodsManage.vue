@@ -353,7 +353,7 @@ const loadChart = async (row) => {
             </el-table-column>
             <el-table-column label='库存' width='120' prop='stock' sortable align='center'></el-table-column>
             <el-table-column label='销量' width='120' prop='sell' sortable align='center'></el-table-column>
-            <el-table-column label='操作' width='250' align='center'>
+            <el-table-column label='操作' width='280' align='center'>
                 <template #default='{ row }'>
                     <el-button :icon='Edit' @click='showUpdateDrawer(row)'>编辑</el-button>
                     <el-button :icon='DataAnalysis' type='primary' @click='loadChart(row)'>统计</el-button>
