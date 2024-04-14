@@ -158,9 +158,9 @@ const deleteOrder = async (row) => {
                     </div>
                 </template>
             </el-table-column>
-            <el-table-column label='订单ID' width='190' prop='id' align='center'></el-table-column>
-            <el-table-column label='用户名' width='220' prop='username' align='center'> </el-table-column>
-            <el-table-column label='订单金额' width='130' prop='total' align='center'>
+            <el-table-column label='订单ID' width='200' prop='id' align='center'></el-table-column>
+            <el-table-column label='用户名' prop='username' align='center'> </el-table-column>
+            <el-table-column label='订单金额' width='150' prop='total' align='center'>
                 <template #default='{ row }'>
                     ￥{{ row.total.toFixed(2) }}
                 </template>
@@ -171,7 +171,7 @@ const deleteOrder = async (row) => {
                     {{ row.state === false ? '未发货' : '已发货' }}
                 </template>
             </el-table-column>
-            <el-table-column label='操作' width='250' align='center'>
+            <el-table-column label='操作' width='280' align='center'>
                 <template #default='{ row }'>
                     <el-button :icon='Document' @click='showDetailDrawer(row)'>详情</el-button>
                     <el-button v-if='!row.state' :icon='Message' type='primary'
