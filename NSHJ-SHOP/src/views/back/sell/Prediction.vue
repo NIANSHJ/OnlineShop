@@ -56,7 +56,7 @@ const option = {
         },
         label: {
             show: true,
-            position: 'left',
+            position: 'bottom',
             textStyle: {
                 fontSize: 20,
                 color: '#5470C6'
