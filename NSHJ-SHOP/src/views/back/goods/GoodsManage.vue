@@ -211,7 +211,7 @@ const loadChart = async (row) => {
 
     //指定图表的配置项和数据
     const option = {
-        title: { text: '该商品近一周销售统计' }, tooltip: {}, legend: { data: [] },
+        title: { text: '近30天销售统计' }, tooltip: {}, legend: { data: [] },
         xAxis: {
             type: 'category', data: [], name: '日期',
             axisLabel: {
@@ -250,7 +250,7 @@ const loadChart = async (row) => {
             },
             label: {
                 show: true,
-                position: 'bottom',
+                position: 'right',
                 textStyle: {
                     fontSize: 20,
                     color: '#5470C6'

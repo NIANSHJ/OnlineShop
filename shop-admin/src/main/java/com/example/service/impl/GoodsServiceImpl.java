@@ -71,8 +71,7 @@ public class GoodsServiceImpl implements GoodsService {
             points.add(timeStamp, goodsSell.getSell());
         }
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedDate = tomorrowDate.format(formatter);
+        String formattedDate = tomorrowDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         long tomorrowTimestamp = tomorrowDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
         double predictedSell = MathUtil.getPrediction(points, tomorrowTimestamp);
         GoodsSell goodsSell = new GoodsSell();

@@ -40,8 +40,7 @@ public class SellServiceImpl implements SellService {
             points.add(timeStamp, prediction.getSales());
         }
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedDate = tomorrowDate.format(formatter);
+        String formattedDate = tomorrowDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         long tomorrowTimestamp = tomorrowDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
         double predictedSales = MathUtil.getPrediction(points, tomorrowTimestamp);
         Prediction prediction = new Prediction();
