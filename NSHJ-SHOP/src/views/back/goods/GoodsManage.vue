@@ -237,8 +237,8 @@ const loadChart = async (row) => {
             minInterval: 1
         },
         tooltip: {
-            formatter: (datas) => {
-                return datas.value.toFixed(0);
+             formatter: (params) => {
+                return params.name+" 销量:"+params.value.toFixed(0);
             }
         },
         series: [{
